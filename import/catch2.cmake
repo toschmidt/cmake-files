@@ -1,18 +1,34 @@
-include(FetchContent)
+include(ExternalProject)
 
-FetchContent_Declare(
-        Catch2
+# library name
+set(CATCH2_LIBRARY catch2)
+
+ExternalProject_Add(
+        ${CATCH2_LIBRARY}_src
+        PREFIX external/${CATCH2_LIBRARY}
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
         GIT_TAG v2.13.1
+        TIMEOUT 10
+        CMAKE_ARGS
+        -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/external/${CATCH2_LIBRARY}
+        -DCMAKE_INSTALL_LIBDIR=${CMAKE_BINARY_DIR}/external/${CATCH2_LIBRARY}/lib
+        -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+        -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
+        -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+        -DCATCH_BUILD_TESTING=OFF
+        UPDATE_COMMAND ""
 )
 
-FetchContent_MakeAvailable(Catch2)
-add_library(catch2 ALIAS Catch2)
+# path to installed artifacts
+ExternalProject_Get_Property(${CATCH2_LIBRARY}_src install_dir)
+set(CATCH2_INCLUDE_DIR ${install_dir}/include)
 
-# set export variables
-set(CATCH2_LIBRARY catch2)
-set(CATCH2_SOURCE_DIR ${Catch2_SOURCE_DIR})
+# build library from external project
+file(MAKE_DIRECTORY ${CATCH2_INCLUDE_DIR})
+add_library(${CATCH2_LIBRARY} INTERFACE IMPORTED)
+set_property(TARGET ${CATCH2_LIBRARY} APPEND PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CATCH2_INCLUDE_DIR})
+add_dependencies(${CATCH2_LIBRARY} ${CATCH2_LIBRARY}_src)
 
 message(STATUS "[CATCH2] settings")
 message(STATUS "    CATCH2_LIBRARY = ${CATCH2_LIBRARY}")
-message(STATUS "    CATCH2_SOURCE_DIR = ${CATCH2_SOURCE_DIR}")
+message(STATUS "    CATCH2_INCLUDE_DIR = ${CATCH2_INCLUDE_DIR}")
