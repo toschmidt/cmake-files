@@ -1,4 +1,5 @@
 include(ExternalProject)
+find_package(Git REQUIRED)
 
 # library name
 set(CATCH2_LIBRARY catch2)

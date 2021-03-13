@@ -1,4 +1,5 @@
 include(ExternalProject)
+find_package(Git REQUIRED)
 
 # library name
 set(CPP_UTILITY_LIBRARY cpp-utility)
