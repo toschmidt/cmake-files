@@ -1,5 +1,6 @@
 find_package(Threads REQUIRED)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
+set_target_properties(Threads::Threads PROPERTIES IMPORTED_GLOBAL TRUE)
 
 add_library(threads ALIAS Threads::Threads)
 
