@@ -19,6 +19,7 @@ ExternalProject_Add(
         -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DENABLE_TESTING=OFF
         -DENABLE_BENCHMARKING=OFF
+        BUILD_ALWAYS OFF
 )
 
 # path to installed artifacts

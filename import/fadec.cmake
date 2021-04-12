@@ -23,6 +23,7 @@ ExternalProject_Add(
         INSTALL_COMMAND ""
         TEST_COMMAND meson test -v
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libfadec.a
+        BUILD_ALWAYS OFF
 )
 
 # path to installed artifacts

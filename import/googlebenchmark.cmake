@@ -19,6 +19,7 @@ ExternalProject_Add(
         -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DBENCHMARK_ENABLE_GTEST_TESTS=OFF
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libbenchmark.a
+        BUILD_ALWAYS OFF
 )
 
 # path to installed artifacts
