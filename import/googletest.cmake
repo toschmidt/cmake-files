@@ -13,7 +13,7 @@ ExternalProject_Add(
         ${GOOGLETEST_LIBRARY}_src
         PREFIX external/${GOOGLETEST_LIBRARY}
         GIT_REPOSITORY "https://github.com/google/googletest.git"
-        GIT_TAG master
+        GIT_TAG 965f8ecbfd8b91bbd4f5ee4914c028660bb89029
         TIMEOUT 10
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/external/${GOOGLETEST_LIBRARY}
@@ -24,7 +24,6 @@ ExternalProject_Add(
         -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DDEBUG_POSTFIX=""
         -DBUILD_GMOCK=OFF
-        UPDATE_COMMAND ""
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libgtest${GOOGLETEST_DEBUG_POSTFIX}.a
 )
 

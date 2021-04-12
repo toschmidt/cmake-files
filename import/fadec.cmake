@@ -16,12 +16,11 @@ ExternalProject_Add(
         ${FADEC_LIBRARY}_src
         PREFIX external/${FADEC_LIBRARY}
         GIT_REPOSITORY "https://github.com/aengelke/fadec.git"
-        GIT_TAG 4f2366afd198b30c3ec335667c65a2f1b6725dd5
+        GIT_TAG d67eb93148e68c05618ae131f56b30f16b7408eb
         TIMEOUT 10
         CONFIGURE_COMMAND CFLAGS=-fno-stack-protector meson --prefix=/ --libdir=lib --buildtype ${MESON_BUILD_TYPE} <SOURCE_DIR>
         BUILD_COMMAND DESTDIR=<INSTALL_DIR> ninja install
         INSTALL_COMMAND ""
-        UPDATE_COMMAND ""
         TEST_COMMAND meson test -v
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libfadec.a
 )

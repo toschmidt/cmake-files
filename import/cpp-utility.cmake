@@ -8,6 +8,7 @@ ExternalProject_Add(
         ${CPP_UTILITY_LIBRARY}_src
         PREFIX external/${CPP_UTILITY_LIBRARY}
         GIT_REPOSITORY https://github.com/toschmidt/cpp-utility.git
+        GIT_TAG v1.0
         TIMEOUT 10
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/external/${CPP_UTILITY_LIBRARY}
@@ -17,7 +18,7 @@ ExternalProject_Add(
         -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
         -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DENABLE_TESTING=OFF
-        UPDATE_COMMAND git pull
+        -DENABLE_BENCHMARKING=OFF
 )
 
 # path to installed artifacts
