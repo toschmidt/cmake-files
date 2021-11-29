@@ -8,7 +8,7 @@ ExternalProject_Add(
         ${CPP_BENCHMARK_LIBRARY}_src
         PREFIX external/${CPP_BENCHMARK_LIBRARY}
         GIT_REPOSITORY https://github.com/toschmidt/cpp-benchmark.git
-        GIT_TAG v1.0
+        GIT_TAG v1.1
         TIMEOUT 10
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/external/${CPP_BENCHMARK_LIBRARY}
