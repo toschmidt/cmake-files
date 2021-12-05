@@ -22,6 +22,7 @@ ExternalProject_Add(
         -DENABLE_BENCHMARKING=OFF
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libcpp-benchmark.a
         BUILD_ALWAYS OFF
+        UPDATE_DISCONNECTED ON
 )
 
 # path to installed artifacts

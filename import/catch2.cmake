@@ -18,6 +18,7 @@ ExternalProject_Add(
         -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DCATCH_BUILD_TESTING=OFF
         BUILD_ALWAYS OFF
+        UPDATE_DISCONNECTED ON
 )
 
 # path to installed artifacts

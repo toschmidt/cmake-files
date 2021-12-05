@@ -20,6 +20,7 @@ ExternalProject_Add(
         -DBENCHMARK_ENABLE_GTEST_TESTS=OFF
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libbenchmark.a
         BUILD_ALWAYS OFF
+        UPDATE_DISCONNECTED ON
 )
 
 # path to installed artifacts

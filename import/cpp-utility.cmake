@@ -20,6 +20,7 @@ ExternalProject_Add(
         -DENABLE_TESTING=OFF
         -DENABLE_BENCHMARKING=OFF
         BUILD_ALWAYS OFF
+        UPDATE_DISCONNECTED ON
 )
 
 # path to installed artifacts

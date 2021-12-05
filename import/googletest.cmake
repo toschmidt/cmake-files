@@ -26,6 +26,7 @@ ExternalProject_Add(
         -DBUILD_GMOCK=OFF
         BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libgtest${GOOGLETEST_DEBUG_POSTFIX}.a
         BUILD_ALWAYS OFF
+        UPDATE_DISCONNECTED ON
 )
 
 # path to installed artifacts
