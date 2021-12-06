@@ -8,7 +8,7 @@ ExternalProject_Add(
         ${CATCH2_LIBRARY}_src
         PREFIX external/${CATCH2_LIBRARY}
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.1
+        GIT_TAG v2.13.7
         TIMEOUT 10
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/external/${CATCH2_LIBRARY}
